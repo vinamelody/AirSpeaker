@@ -9,10 +9,18 @@ import SwiftUI
 
 @main
 struct AirSpeakerApp: App {
+
+    @Environment(\.openImmersiveSpace) var openImmersiveSpace
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
-        }.windowStyle(.volumetric)
+            EmptyView()
+                .persistentSystemOverlays(.hidden)
+                .task {
+                    await openImmersiveSpace(id: "ImmersiveSpace")
+                }
+        }
+        .windowStyle(.volumetric)
 
         ImmersiveSpace(id: "ImmersiveSpace") {
             ImmersiveView()

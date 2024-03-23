@@ -7,13 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5AAC93652B8B73EC00AAA6A6 /* RealityKitContent in Frameworks */ = {isa = PBXBuildFile; productRef = 5AAC93642B8B73EC00AAA6A6 /* RealityKitContent */; };
 		5AAC93672B8B73EC00AAA6A6 /* AirSpeakerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC93662B8B73EC00AAA6A6 /* AirSpeakerApp.swift */; };
-		5AAC93692B8B73EC00AAA6A6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC93682B8B73EC00AAA6A6 /* ContentView.swift */; };
 		5AAC936B2B8B73EC00AAA6A6 /* ImmersiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC936A2B8B73EC00AAA6A6 /* ImmersiveView.swift */; };
 		5AAC936D2B8B73ED00AAA6A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5AAC936C2B8B73ED00AAA6A6 /* Assets.xcassets */; };
 		5AAC93702B8B73ED00AAA6A6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5AAC936F2B8B73ED00AAA6A6 /* Preview Assets.xcassets */; };
 		5AAC937B2B8B73ED00AAA6A6 /* AirSpeakerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC937A2B8B73ED00AAA6A6 /* AirSpeakerTests.swift */; };
+		5AB862BE2B92262C0054BAC1 /* jbl_charge.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 5AB862BD2B92262C0054BAC1 /* jbl_charge.usdz */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,15 +27,14 @@
 
 /* Begin PBXFileReference section */
 		5AAC935F2B8B73EC00AAA6A6 /* AirSpeaker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AirSpeaker.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		5AAC93632B8B73EC00AAA6A6 /* RealityKitContent */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = RealityKitContent; sourceTree = "<group>"; };
 		5AAC93662B8B73EC00AAA6A6 /* AirSpeakerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirSpeakerApp.swift; sourceTree = "<group>"; };
-		5AAC93682B8B73EC00AAA6A6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		5AAC936A2B8B73EC00AAA6A6 /* ImmersiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImmersiveView.swift; sourceTree = "<group>"; };
 		5AAC936C2B8B73ED00AAA6A6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5AAC936F2B8B73ED00AAA6A6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		5AAC93712B8B73ED00AAA6A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5AAC93762B8B73ED00AAA6A6 /* AirSpeakerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AirSpeakerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AAC937A2B8B73ED00AAA6A6 /* AirSpeakerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirSpeakerTests.swift; sourceTree = "<group>"; };
+		5AB862BD2B92262C0054BAC1 /* jbl_charge.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = jbl_charge.usdz; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,7 +42,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5AAC93652B8B73EC00AAA6A6 /* RealityKitContent in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,8 +78,8 @@
 			isa = PBXGroup;
 			children = (
 				5AAC93662B8B73EC00AAA6A6 /* AirSpeakerApp.swift */,
-				5AAC93682B8B73EC00AAA6A6 /* ContentView.swift */,
 				5AAC936A2B8B73EC00AAA6A6 /* ImmersiveView.swift */,
+				5AB862BD2B92262C0054BAC1 /* jbl_charge.usdz */,
 				5AAC936C2B8B73ED00AAA6A6 /* Assets.xcassets */,
 				5AAC93712B8B73ED00AAA6A6 /* Info.plist */,
 				5AAC936E2B8B73ED00AAA6A6 /* Preview Content */,
@@ -93,7 +90,6 @@
 		5AAC93622B8B73EC00AAA6A6 /* Packages */ = {
 			isa = PBXGroup;
 			children = (
-				5AAC93632B8B73EC00AAA6A6 /* RealityKitContent */,
 			);
 			path = Packages;
 			sourceTree = "<group>";
@@ -131,7 +127,6 @@
 			);
 			name = AirSpeaker;
 			packageProductDependencies = (
-				5AAC93642B8B73EC00AAA6A6 /* RealityKitContent */,
 			);
 			productName = AirSpeaker;
 			productReference = 5AAC935F2B8B73EC00AAA6A6 /* AirSpeaker.app */;
@@ -200,6 +195,7 @@
 			files = (
 				5AAC93702B8B73ED00AAA6A6 /* Preview Assets.xcassets in Resources */,
 				5AAC936D2B8B73ED00AAA6A6 /* Assets.xcassets in Resources */,
+				5AB862BE2B92262C0054BAC1 /* jbl_charge.usdz in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -217,7 +213,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5AAC93692B8B73EC00AAA6A6 /* ContentView.swift in Sources */,
 				5AAC93672B8B73EC00AAA6A6 /* AirSpeakerApp.swift in Sources */,
 				5AAC936B2B8B73EC00AAA6A6 /* ImmersiveView.swift in Sources */,
 			);
@@ -486,13 +481,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		5AAC93642B8B73EC00AAA6A6 /* RealityKitContent */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = RealityKitContent;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5AAC93572B8B73EC00AAA6A6 /* Project object */;
 }

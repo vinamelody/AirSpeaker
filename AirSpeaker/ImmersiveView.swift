@@ -7,14 +7,22 @@
 
 import SwiftUI
 import RealityKit
-import RealityKitContent
 
 struct ImmersiveView: View {
+
+    @State var speaker: ModelEntity? = nil
+
     var body: some View {
         RealityView { content in
-            // Add the initial RealityKit content
-            if let scene = try? await Entity(named: "Immersive", in: realityKitContentBundle) {
-                content.add(scene)
+            do {
+                speaker = try await ModelEntity(named: "jbl_charge")
+
+                if let speaker {
+                    content.add(speaker)
+                }
+            }
+            catch {
+                print("Error loading the model")
             }
         }
     }
