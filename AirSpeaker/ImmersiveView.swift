@@ -13,16 +13,25 @@ struct ImmersiveView: View {
     @State var speaker: ModelEntity? = nil
     @State var isDragging = false
     @State var dragStartPosition: SIMD3<Float> = .zero
+    @State var animation: AnimationResource? = nil
+    @State var audioController: AudioPlaybackController?
+    @State var volume: Double = -30.0
 
     var body: some View {
         RealityView { content in
             do {
                 speaker = try await ModelEntity(named: "jbl_charge")
                 let environment = try await EnvironmentResource(named: "studio")
+                let audioResource = try AudioFileResource.load(named: "calming.wav", in: nil, configuration: .init(loadingStrategy: .preload, shouldLoop: true))
 
                 if let speaker {
+                    let table = {
+                        let anchor = AnchorEntity(.plane(.horizontal, classification: .table, minimumBounds: [0.5, 0.5]))
+                        anchor.addChild(speaker, preservingWorldTransform: true)
+                        return anchor
+                    }()
+
                     speaker.scale = [0.00075, 0.00075, 0.00075]
-                    speaker.position.z = -1
 
                     speaker.components.set(ImageBasedLightComponent(source: .single(environment)))
                     speaker.components.set(ImageBasedLightReceiverComponent(imageBasedLight: speaker))
@@ -32,7 +41,16 @@ struct ImmersiveView: View {
                     speaker.components.set(InputTargetComponent())
                     speaker.components.set(GroundingShadowComponent(castsShadow: true))
 
-                    content.add(speaker)
+                    animation = speaker.availableAnimations[0]
+                    audioController = speaker.prepareAudio(audioResource)
+                    audioController?.gain = volume
+
+                    if let animation {
+                        speaker.playAnimation(animation.repeat())
+                    }
+                    audioController?.play()
+
+                    content.add(table)
                 }
             }
             catch {
