@@ -16,9 +16,10 @@ struct ImmersiveView: View {
     @State var animation: AnimationResource? = nil
     @State var audioController: AudioPlaybackController?
     @State var volume: Double = -30.0
+    @State var isPlaying: Bool = false
 
     var body: some View {
-        RealityView { content in
+        RealityView { content, attachments in
             do {
                 speaker = try await ModelEntity(named: "jbl_charge")
                 let environment = try await EnvironmentResource(named: "studio")
@@ -41,26 +42,56 @@ struct ImmersiveView: View {
                     speaker.components.set(InputTargetComponent())
                     speaker.components.set(GroundingShadowComponent(castsShadow: true))
 
+                    if let attachment = attachments.entity(for: "speaker_controls") {
+                        attachment.position = [0, 0.3, 0]
+                        speaker.addChild(attachment, preservingWorldTransform: true)
+                    }
+
                     animation = speaker.availableAnimations[0]
                     audioController = speaker.prepareAudio(audioResource)
                     audioController?.gain = volume
 
-                    if let animation {
-                        speaker.playAnimation(animation.repeat())
-                    }
-                    audioController?.play()
-
+                    animate()
                     content.add(table)
                 }
             }
             catch {
                 print("Error loading the model")
             }
+        } update: { content, attachments in
+            animate()
+        } attachments: {
+            Attachment(id: "speaker_controls") {
+                HStack {
+                    Toggle(isOn: $isPlaying) {
+                        Label("Play", systemImage: isPlaying ? "pause.fill" : "play.fill")
+                            .font(.largeTitle)
+                            .padding()
+                    }
+                    .toggleStyle(.button)
+                    .buttonStyle(.bordered)
+                    .tint(.green)
+                    .labelStyle(.iconOnly)
+                    .padding()
+                    .glassBackgroundEffect(in: Circle())
+
+                    Slider(value: $volume, in: (-60.0)...(0.0))
+                        .tint(.green)
+                        .frame(maxWidth: 200)
+                        .onChange(of: volume) { _, newValue in
+                            let vol = Audio.Decibel(floatLiteral: newValue)
+                            if let audioController, audioController.isPlaying {
+                                audioController.fade(to: vol, duration: 0)
+                            }
+                        }
+                }
+
+            }
         }
         .gesture(dragGesture)
     }
 
-    var dragGesture: some Gesture {
+    private var dragGesture: some Gesture {
         DragGesture()
             .targetedToAnyEntity()
             .onChanged { value in
@@ -78,10 +109,22 @@ struct ImmersiveView: View {
 
                 entity.setPosition(dragStartPosition + offset, relativeTo: nil)
             }
-            .onEnded {_ in 
+            .onEnded {_ in
                 isDragging = false
                 dragStartPosition = .zero
             }
+    }
+
+    private func animate() {
+        guard let speaker, let animation, let audioController else { return }
+
+        if isPlaying {
+            speaker.playAnimation(animation.repeat())
+            audioController.play()
+        } else {
+            speaker.stopAllAnimations()
+            audioController.stop()
+        }
     }
 }
 
