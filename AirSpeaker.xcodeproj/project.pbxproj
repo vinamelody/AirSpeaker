@@ -13,6 +13,7 @@
 		5AAC93702B8B73ED00AAA6A6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5AAC936F2B8B73ED00AAA6A6 /* Preview Assets.xcassets */; };
 		5AAC937B2B8B73ED00AAA6A6 /* AirSpeakerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC937A2B8B73ED00AAA6A6 /* AirSpeakerTests.swift */; };
 		5AB862BE2B92262C0054BAC1 /* jbl_charge.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 5AB862BD2B92262C0054BAC1 /* jbl_charge.usdz */; };
+		5AB862C02B9382BB0054BAC1 /* studio.skybox in Resources */ = {isa = PBXBuildFile; fileRef = 5AB862BF2B9382BB0054BAC1 /* studio.skybox */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +36,7 @@
 		5AAC93762B8B73ED00AAA6A6 /* AirSpeakerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AirSpeakerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AAC937A2B8B73ED00AAA6A6 /* AirSpeakerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirSpeakerTests.swift; sourceTree = "<group>"; };
 		5AB862BD2B92262C0054BAC1 /* jbl_charge.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = jbl_charge.usdz; sourceTree = "<group>"; };
+		5AB862BF2B9382BB0054BAC1 /* studio.skybox */ = {isa = PBXFileReference; lastKnownFileType = file.skybox; path = studio.skybox; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 				5AAC93662B8B73EC00AAA6A6 /* AirSpeakerApp.swift */,
 				5AAC936A2B8B73EC00AAA6A6 /* ImmersiveView.swift */,
 				5AB862BD2B92262C0054BAC1 /* jbl_charge.usdz */,
+				5AB862BF2B9382BB0054BAC1 /* studio.skybox */,
 				5AAC936C2B8B73ED00AAA6A6 /* Assets.xcassets */,
 				5AAC93712B8B73ED00AAA6A6 /* Info.plist */,
 				5AAC936E2B8B73ED00AAA6A6 /* Preview Content */,
@@ -196,6 +199,7 @@
 				5AAC93702B8B73ED00AAA6A6 /* Preview Assets.xcassets in Resources */,
 				5AAC936D2B8B73ED00AAA6A6 /* Assets.xcassets in Resources */,
 				5AB862BE2B92262C0054BAC1 /* jbl_charge.usdz in Resources */,
+				5AB862C02B9382BB0054BAC1 /* studio.skybox in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
